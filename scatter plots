@@ -1,0 +1,11 @@
+sns.scatterplot(x=insurance_data['bmi'], y=insurance_data['charges'])
+
+To double-check the strength of this relationship, you might like to add a regression line, or the line that best fits the data. We do this by changing the command to sns.regplot.
+sns.regplot(x=insurance_data['bmi'], y=insurance_data['charges'])   %画回归线
+
+sns.scatterplot(x=insurance_data['bmi'], y=insurance_data['charges'], hue=insurance_data['smoker'])  %%对此列不同数据进行不同着色
+
+sns.lmplot(x="bmi", y="charges", hue="smoker", data=insurance_data)  %%使用 Seaborn 的 lmplot() 函数绘制了一个散点图，并拟合了一条线性回归线。
+
+sns.swarmplot(x=insurance_data['smoker'],
+              y=insurance_data['charges'])   %%画蜂群图

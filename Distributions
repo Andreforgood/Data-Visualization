@@ -1,0 +1,33 @@
+① Histograms
+sns.histplot(iris_data['Petal Length (cm)'])
+
+② density plots/kernel density estimate (KDE)
+# KDE plot 
+sns.kdeplot(data=iris_data['Petal Length (cm)'], shade=True)
+
+%% {  ！！`shade` is now deprecated in favor of `fill`; setting `fill=True`.
+This will become an error in seaborn v0.14.0; please update your code.}
+
+③ 2D KDE plots
+%% We're not restricted to a single column when creating a KDE plot. We can create a two-dimensional (2D) KDE plot with the sns.jointplot command.
+# 2D KDE plot
+sns.jointplot(x=iris_data['Petal Length (cm)'], y=iris_data['Sepal Width (cm)'], kind="kde")
+
+④ Color-coded plots
+# Histograms for each species
+sns.histplot(data=iris_data, x='Petal Length (cm)', hue='Species')
+
+# Add title
+plt.title("Histogram of Petal Lengths, by Species")
+------------------------------------------------------------------------------
+# KDE plots for each species
+sns.kdeplot(data=iris_data, x='Petal Length (cm)', hue='Species', shade=True)
+
+# Add title
+plt.title("Distribution of Petal Lengths, by Species")
+--------------------------------------------------------------------------------
+一些个性化设置：！！！
+
+# Change the style of the figure to the "dark" theme
+sns.set_style("dark")
+

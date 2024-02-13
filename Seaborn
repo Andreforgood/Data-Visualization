@@ -1,0 +1,15 @@
+%%BASE SETTING UP
+import pandas as pd
+pd.plotting.register_matplotlib_converters()   是 Pandas 中的一个函数，用于注册 Pandas 日期时间转换器到 Matplotlib，以便在使用 Pandas DataFrame 中的日期时间数据绘制图形时，Matplotlib 能够正确地处理日期时间信息。
+import matplotlib.pyplot as plt
+%matplotlib inline               是 Jupyter Notebook 中的一个魔术命令（Magic Command），用于配置 Jupyter Notebook 在绘图时使用内联显示（inline display）。这意味着在执行绘图代码后，图形将直接嵌入到 Notebook 中，而不是以独立窗口的形式显示。
+import seaborn as sns
+print("Setup Complete")
+
+fifa_data = pd.read_csv(fifa_filepath, index_col="Date", parse_dates=True) //文件目录，行索引，尝试解析日期
+-------------------------------------------------------------------------------------------------------------------
+①
+# Set the width and height of the figure
+plt.figure(figsize=(16,6))
+# Line chart showing how FIFA rankings evolved over time 
+sns.lineplot(data=fifa_data)  画线型图
